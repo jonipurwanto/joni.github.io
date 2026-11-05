@@ -1,0 +1,75 @@
+PS MULTI JB — ONLINE ONE HTML R1
+
+ISI DAN CARA UPLOAD
+1. Upload index.html dan folder files/ dengan susunan tetap.
+2. Buka http://domain-anda/folder/index.html dari browser PS3.
+   Bisa ditempatkan di root atau subfolder. Tab SERVER ONLINE terbuka pertama.
+3. Paket menggunakan satu HTML, CSS dan mesin halaman sudah tertanam.
+   Tidak memerlukan server.py, Python, PHP, atau database di hosting.
+   Berkas dokumentasi/pemeriksa tidak perlu diupload ke hosting.
+
+JIKA HTML DI joni.rf.gd DAN BAHAN DI SERVER LAIN
+Hosting gratis InfinityFree membatasi HTML/JS 1 MB dan berkas lain 10 MB,
+serta memakai pemeriksaan JavaScript/cookie. Dua paket HEN melebihi 10 MB.
+Jangan menganggap mengupload ZIP ini ke rf.gd saja sudah cukup.
+- Upload folder files/ ke hosting yang menerima file 34 MB dan memberi
+  URL langsung tanpa halaman konfirmasi, login, atau tantangan JavaScript.
+- Di awal index.html ubah satu baris:
+  var PS3_DOWNLOAD_BASE = "";
+  menjadi URL folder INDUK files/, misalnya:
+  var PS3_DOWNLOAD_BASE = "http://domain-bahan-anda/ps3/";
+- Hasil URL Nico: http://domain-bahan-anda/ps3/files/nico/HEN.P3T
+- Upload index.html ke joni.rf.gd. Tidak perlu mengubah kode installer.
+Tidak ada domain bahan sungguhan yang diisikan karena belum diberikan.
+Untuk server tunggal yang mendukung semua file, biarkan nilai kosong.
+Gunakan HTTP jika HTTPS server tidak kompatibel dengan browser PS3.
+Jangan pakai halaman berbagi Google Drive/Mega sebagai URL file langsung.
+
+BAHAN DOWNLOAD — PERTAHANKAN NAMA DAN HURUF BESAR/KECIL
+Nico: files/nico/HEN.P3T                  27.456.267 byte
+HEN PRO: files/henpro/000.p3t              1.114.112 byte
+HEN PRO: files/henpro/HEN.p3t             33.734.112 byte
+CFW: files/cfw/flash493.P3T                3.146.784 byte
+Keempatnya disalin tanpa perubahan; SHA256SUMS.txt mencatat hash sumber.
+HEN.P3T Nico dan HEN.p3t PRO BERBEDA. Jangan dicampur atau saling ditimpa.
+Paket ini tidak menyertakan file lama yang tidak dipanggil menu aktif.
+
+LOKASI YANG DIBACA INSTALLER DI PS3
+Nico: /dev_hdd0/theme/HEN.P3T
+HEN PRO: /dev_hdd0/theme/000.p3t dan /dev_hdd0/theme/HEN.p3t
+CFW: /dev_hdd0/theme/flash493.P3T
+Mengunduh tidak membuktikan file tersimpan pada lokasi tersebut.
+Pastikan lokasi dan nama benar sebelum menjalankan installer.
+Migrasi ini tidak menambahkan pemindahan otomatis ke HDD atau mengubah mesin
+native. Metode simpan/instal PS3 yang lama tetap diperlukan.
+Tab USB tetap ada dengan mesin tertanam dan pilihan USB yang lama.
+Bahan USB harus sudah tersedia di flashdisk seperti sebelumnya; ZIP sumber
+bukan paket lengkap penyedia semua bahan untuk flashdisk.
+
+KONFIGURASI DOWNLOAD
+files/.htaccess menyetel application/octet-stream dan Content-Disposition:
+attachment pada Apache jika modul dan AllowOverride mengizinkannya.
+Untuk Nginx/panel hosting lain, atur .p3t/.P3T sebagai application/octet-stream
+melalui konfigurasi server. Jangan ubah atau kompres ulang biner saat dikirim.
+.htaccess tidak menonaktifkan proteksi atau menaikkan batas hosting.
+
+VERIFIKASI SETELAH UPLOAD
+Di PC, ekstrak ZIP ini, buka terminal di folder hasil ekstrak, lalu:
+  python CEK_UNDUHAN.py http://domain-bahan-anda/ps3/
+Pemeriksa mengunduh keempat file (sekitar 65,5 MB) ke hash, tidak ke disk.
+Semua harus PASS. Jika GAGAL, jangan gunakan hasil unduhan tersebut.
+Pemeriksa tanpa cookie juga mendeteksi banyak proteksi hosting; PASS di PC
+belum menjamin PS3 kompatibel dengan TLS, unduhan, penyimpanan, atau installer.
+
+VALIDASI R1
+- HTML di bawah 1 MB; seluruh script halaman aktif dan USB tertanam lolos parsing.
+- Rute halaman/menu dan URL 4 unduhan diperiksa pada root/subfolder dan server terpisah.
+- Seluruh 4 biner identik dengan ZIP asal (byte-for-byte dan SHA-256).
+- Pengemasan literal HTML Nico dinormalkan agar karakter kontrol tidak merusak JS.
+- Tautan fallback lama IlIIlIlIl.html diarahkan ke menu yang ada.
+- Belum diupload ke domain pengguna; belum diuji di perangkat PS3.
+- Keberhasilan exploit/instalasi/flash tidak dapat dibuktikan oleh tes lokal ini.
+
+Sumber batas hosting:
+https://forum.infinityfree.com/t/file-size-and-upload-limits/49308
+https://forum.infinityfree.com/t/browser-security-system-features-and-limitations/49353
